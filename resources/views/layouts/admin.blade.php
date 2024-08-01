@@ -82,15 +82,15 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{ url('admin/usuarios/create') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Active Page</p>
+                                            <p>Creación de Usuarios</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{ url('admin/usuarios') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Inactive Page</p>
+                                            <p>Listado de Usuarios</p>
                                         </a>
                                     </li>
                                 </ul>

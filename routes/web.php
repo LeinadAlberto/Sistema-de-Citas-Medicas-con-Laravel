@@ -26,3 +26,4 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->na
 
 /* Rutas para el Administrador - Usuarios */
 Route::get('/admin/usuarios', [App\Http\Controllers\UsuarioController::class, 'index'])->name('admin.usuarios.index')->middleware('auth');
+Route::get('/admin/usuarios/create', [App\Http\Controllers\UsuarioController::class, 'create'])->name('admin.usuarios.create');
