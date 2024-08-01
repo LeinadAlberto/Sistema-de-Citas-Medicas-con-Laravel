@@ -17,7 +17,44 @@
 @endsection
 
 @section('content')
-    <div class="row">
-        
+<div class="col-md-10">
+    <div class="card card-outline card-info">
+        <div class="card-header">
+            <h3 class="card-title">Usuarios registrados</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-striped table-bordered table-hover ">
+                <thead class="thead-dark text-center">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <?php $contador = 1; ?>
+                    @foreach($usuarios as $usuario)
+                        <tr>
+                            <th scope="row">{{ $contador++ }}</th>
+                            <td>{{ $usuario->name }}</td>
+                            <td>{{ $usuario->email }}</td>
+                            <td>
+                                <button class="btn btn-info">Ver</button>
+                                <button class="btn btn-secondary">Editar</button>
+                                <button class="btn btn-danger">Eliminar</button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
 @endsection
