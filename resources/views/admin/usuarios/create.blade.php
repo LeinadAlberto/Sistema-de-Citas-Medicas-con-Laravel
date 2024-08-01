@@ -24,7 +24,7 @@
             </div>
 
             <div class="card-body">
-                <form action="" method="POST">
+                <form action="{{ url('/admin/usuarios/create')}}" method="POST">
                     @csrf {{-- Genera un token de protección contra ataques CSRF (Cross-Site Request Forgery). --}}
                     {{-- Usuario --}}
                     <div class="row">
@@ -58,7 +58,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Repetir Contraseña <b class="text-danger">*</b></label>
-                                <input name="password_verify" type="password" class="form-control" required>
+                                <input name="password_confirmation" type="password" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
+            </div>{{-- /.card-body --}}
+        </div>{{-- /.card --}}
     </div>
 @endsection

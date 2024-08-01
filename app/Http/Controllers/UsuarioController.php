@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -19,5 +20,24 @@ class UsuarioController extends Controller
         /* $usuarios = User::all(); */
 
         return view('admin.usuarios.create');
+    }
+
+    public function store(Request $request) {
+
+        /* $datos = request()->all();
+
+        return response()->json($datos); */
+
+        $request->validate([
+            'name'=>'required|max:250',
+            'email'=>'required|max:250|unique:users',
+            'password'=>'required|max:250|confirmed'
+        ]);
+
+        $usuario = new User();
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->password = Hash::make($request['password']);
+        $usuario->save();
     }
 }
