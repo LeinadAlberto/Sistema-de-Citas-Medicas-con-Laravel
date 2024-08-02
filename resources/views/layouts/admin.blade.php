@@ -15,6 +15,8 @@
         <link rel="shortcut icon" href="{{ url('dist/img/logo-sis-medical.png') }}" type="image/x-icon">
         {{-- Bootstrap Icons --}}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        {{-- Sweet Alert 2 - CDN --}}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     
     <body class="hold-transition sidebar-mini">
@@ -110,6 +112,19 @@
                 </div>
                 <!-- /.sidebar -->
             </aside>
+
+            <!-- Mensajes de Sweet Alert 2 -->
+            @if ( ($message = Session::get('mensaje')) && ($icono = Session::get('icono')))
+                <script>
+                    Swal.fire({
+                        position: "center",
+                        icon: "{{ $icono }}",
+                        title: "{{ $message }}",
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+                </script>
+            @endif
 
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">

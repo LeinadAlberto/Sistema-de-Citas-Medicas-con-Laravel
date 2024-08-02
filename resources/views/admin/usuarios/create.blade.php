@@ -22,8 +22,9 @@
             <div class="card-header">
                 <h3 class="card-title">Llene los Datos</h3>
             </div>
-
+            
             <div class="card-body">
+
                 <form action="{{ url('/admin/usuarios/create')}}" method="POST">
                     @csrf {{-- Genera un token de protección contra ataques CSRF (Cross-Site Request Forgery). --}}
                     {{-- Usuario --}}
