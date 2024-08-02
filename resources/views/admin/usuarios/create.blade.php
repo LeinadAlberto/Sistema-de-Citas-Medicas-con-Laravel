@@ -26,44 +26,61 @@
             <div class="card-body">
 
                 <form action="{{ url('/admin/usuarios/create')}}" method="POST">
-                    @csrf {{-- Genera un token de protección contra ataques CSRF (Cross-Site Request Forgery). --}}
-                    {{-- Usuario --}}
+                    @csrf <!-- Genera un token de protección contra ataques CSRF (Cross-Site Request Forgery). -->
+                    
+                    <!-- Usuario -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Usuario <b class="text-danger">*</b></label>
-                                <input name="name" type="text" class="form-control" required>
+                                <input name="name" type="text" value="{{ old('name') }}" class="form-control" required>
+                                @error('name')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
                     </div>
-                    {{-- Correo Electrónico --}}
+
+                    <!-- Correo Electrónico -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Correo Electrónico <b class="text-danger">*</b></label>
-                                <input name="email" type="email" class="form-control" required>
+                                <input name="email" type="email" value="{{ old('email') }}" class="form-control" required>
+                                @error('email')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
                     </div>
-                    {{-- Contraseña --}}
+
+                    <!-- Contraseña -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Contraseña <b class="text-danger">*</b></label>
-                                <input name="password" type="password" class="form-control" required>
+                                <input name="password" type="password" value="{{ old('password') }}" class="form-control" required>
+                                @error('password')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
                     </div>
-                    {{-- Repetir Contraseña --}}
+
+                    <!-- Repetir Contraseña -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Repetir Contraseña <b class="text-danger">*</b></label>
-                                <input name="password_confirmation" type="password" class="form-control" required>
+                                <input name="password_confirmation" type="password" value="{{ old('password_confirmation') }}" class="form-control" required>
+                                @error('password_confirmation')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                         </div>
                     </div>
-                    {{-- Botones Cancelar | Registrar --}}
+
+                    <!-- Botones Cancelar | Registrar -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -78,7 +95,7 @@
                         </div>
                     </div>
                 </form>
-            </div>{{-- /.card-body --}}
-        </div>{{-- /.card --}}
+            </div><!-- /.card-body -->
+        </div><!-- /.card -->
     </div>
 @endsection
