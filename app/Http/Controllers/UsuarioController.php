@@ -8,18 +8,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
-    public function index()
-    {
+    public function index() {
+
         $usuarios = User::all();
 
         return view('admin.usuarios.index', compact('usuarios'));
+
     }
 
-    public function create()
-    {
+    public function create() {
+
         /* $usuarios = User::all(); */
 
         return view('admin.usuarios.create');
+
     }
 
     public function store(Request $request) {
@@ -43,5 +45,14 @@ class UsuarioController extends Controller
         return redirect()->route('admin.usuarios.index')
             ->with('mensaje', 'Usuario registrado exitosamente.')
             ->with('icono', 'success');
+
+    }
+
+    public function show($id) {
+        
+        $usuario = User::findOrFail($id);
+
+        return view('admin.usuarios.show', compact('usuario'));
+        
     }
 }

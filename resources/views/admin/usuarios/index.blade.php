@@ -52,9 +52,9 @@
                             <td>{{ $usuario->email }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Exemplo Basico">
-                                    <button title="Ver" type="button" class="btn btn-info btn-sm">
+                                    <a href="{{ url('admin/usuarios/'.$usuario->id) }}" title="Ver" type="button" class="btn btn-info btn-sm">
                                         <i class="bi bi-eye"></i>
-                                    </button>
+                                    </a>
                                     <button title="Editar" type="button" class="btn btn-success btn-sm">
                                         <i class="bi bi-pencil"></i>
                                     </button>
