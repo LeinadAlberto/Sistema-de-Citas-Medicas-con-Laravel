@@ -55,9 +55,11 @@
                                     <a href="{{ url('admin/usuarios/'.$usuario->id) }}" title="Ver" type="button" class="btn btn-info btn-sm">
                                         <i class="bi bi-eye"></i>
                                     </a>
-                                    <button title="Editar" type="button" class="btn btn-success btn-sm">
+
+                                    <a href="{{ url('admin/usuarios/'.$usuario->id.'/edit') }}" title="Editar" type="button" class="btn btn-success btn-sm">
                                         <i class="bi bi-pencil"></i>
-                                    </button>
+                                    </a>
+
                                     <button title="Eliminar" type="button" class="btn btn-danger btn-sm">
                                         <i class="bi bi-trash"></i>
                                     </button>
