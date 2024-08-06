@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
+    
     public function index() {
 
         $usuarios = User::all();
@@ -110,4 +111,28 @@ class UsuarioController extends Controller
             ->with('icono', 'success');
 
     }
+
+    public function confirmDelete($id) {
+
+        /* 
+            Se intenta encontrar un usuario por su 'id' y, si no lo encuentra, 
+            captura la excepción y devuelve una respuesta JSON con un mensaje de error 
+            y un código de estado HTTP 404. 
+        */
+
+        $usuario = User::findOrFail($id);
+
+        return view('admin.usuarios.delete', compact('usuario'));
+
+    }
+
+    public function destroy($id) {
+
+        User::destroy($id);
+
+        return redirect()->route('admin.usuarios.index')
+            ->with('mensaje', 'Usuario eliminado exitosamente.')
+            ->with('icono', 'success');
+    }
+
 }

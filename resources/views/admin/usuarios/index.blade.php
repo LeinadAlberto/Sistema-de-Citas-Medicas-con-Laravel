@@ -60,9 +60,9 @@
                                         <i class="bi bi-pencil"></i>
                                     </a>
 
-                                    <button title="Eliminar" type="button" class="btn btn-danger btn-sm">
+                                    <a href="{{ url('admin/usuarios/'.$usuario->id.'/confirm-delete') }}" title="Eliminar" type="button" class="btn btn-danger btn-sm">
                                         <i class="bi bi-trash"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
