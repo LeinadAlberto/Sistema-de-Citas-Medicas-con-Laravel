@@ -22,7 +22,7 @@
     <div class="card card-outline card-info">
 
         <div class="card-header">
-            <h3 class="card-title">Usuarios registrados</h3>
+            <h3 class="card-title">Usuarios Registrados</h3>
             <div class="card-tools">
                 <a href="{{ url('admin/usuarios/create') }}" class="btn btn-info">
                     Nuevo Usuario
@@ -78,12 +78,12 @@
 
                             "language": {
                                 "emptyTable": "No hay información",
-                                "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-                                "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
-                                "infoFiltered": "(Filtrado de _MAX_ total Usuarios)",
+                                "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
+                                "infoEmpty": "Mostrando 0 a 0 de 0 Registros",
+                                "infoFiltered": "(Filtrado de _MAX_ total Registros)",
                                 "infoPostFix": "",
                                 "thousands": ",",
-                                "lengthMenu": "Mostrar _MENU_ Usuarios",
+                                "lengthMenu": "Mostrar _MENU_ Registros",
                                 "loadingRecords": "Cargando...",
                                 "processing": "Procesando...",
                                 "search": "Buscador:",
