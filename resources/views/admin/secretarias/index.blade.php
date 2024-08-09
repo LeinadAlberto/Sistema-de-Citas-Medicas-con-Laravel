@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Listado de Secretarias(os)</h1>
+                <h1 class="m-0">Listado de Secretarias</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -22,10 +22,10 @@
     <div class="card card-outline card-info">
 
         <div class="card-header">
-            <h3 class="card-title">Secretarias(os) registrados</h3>
+            <h3 class="card-title">Secretarias Registradas</h3>
             <div class="card-tools">
                 <a href="{{ url('admin/secretarias/create') }}" class="btn btn-info">
-                    Nuevo(a) Secretaria(o)
+                    Nueva Secretaria
                 </a>
             </div>
         </div><!-- /.card-header-->
@@ -49,29 +49,37 @@
                 </thead>
 
                 <tbody class="text-center">
+
                     <?php $contador = 1; ?>
-                    @foreach($usuarios as $usuario)
+
+                    @foreach($secretarias as $secretaria)
                         <tr>
                             <th scope="row">{{ $contador++ }}</th>
-                            <td>{{ $usuario->name }}</td>
-                            <td>{{ $usuario->email }}</td>
+                            <td>{{ $secretaria->nombres }}</td>
+                            <td>{{ $secretaria->apellidos }}</td>
+                            <td>{{ $secretaria->ci }}</td>
+                            <td>{{ $secretaria->celular }}</td>
+                            <td>{{ $secretaria->fecha_nacimiento }}</td>
+                            <td>{{ $secretaria->direccion }}</td>
+                            <td>{{ $secretaria->email }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Exemplo Basico">
-                                    <a href="{{ url('admin/usuarios/'.$usuario->id) }}" title="Ver" type="button" class="btn btn-info btn-sm">
+                                    <a href="{{ url('admin/secretarias/'.$secretaria->id) }}" title="Ver" type="button" class="btn btn-info btn-sm">
                                         <i class="bi bi-eye"></i>
                                     </a>
 
-                                    <a href="{{ url('admin/usuarios/'.$usuario->id.'/edit') }}" title="Editar" type="button" class="btn btn-success btn-sm">
+                                    <a href="{{ url('admin/secretarias/'.$secretaria->id.'/edit') }}" title="Editar" type="button" class="btn btn-success btn-sm">
                                         <i class="bi bi-pencil"></i>
                                     </a>
 
-                                    <a href="{{ url('admin/usuarios/'.$usuario->id.'/confirm-delete') }}" title="Eliminar" type="button" class="btn btn-danger btn-sm">
+                                    <a href="{{ url('admin/secretarias/'.$secretaria->id.'/confirm-delete') }}" title="Eliminar" type="button" class="btn btn-danger btn-sm">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
+
                 </tbody>
 
                 <script>

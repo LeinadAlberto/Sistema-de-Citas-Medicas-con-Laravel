@@ -81,9 +81,10 @@
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        
+                            
+                            <!-- Usuarios-->
                             <li class="nav-item">
-                                <a href="#" class="nav-link active">
+                                <a href="#" class="nav-link">
                                     <i class="nav-icon fas bi bi-people-fill"></i>
                                     <p>
                                         Usuarios
@@ -94,13 +95,38 @@
                                     <li class="nav-item">
                                         <a href="{{ url('admin/usuarios/create') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Creación de Usuarios</p>
+                                            <p>Crear Usuarios</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="{{ url('admin/usuarios') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Listado de Usuarios</p>
+                                            <p>Listar Usuarios</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Secretarias-->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas bi bi-person-circle"></i>
+                                    <p>
+                                        Secretarias
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/secretarias/create') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Crear Secretarias</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/secretarias') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Listar Secretarias</p>
                                         </a>
                                     </li>
                                 </ul>
