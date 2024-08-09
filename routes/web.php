@@ -59,4 +59,8 @@ Route::get('/admin/secretarias/create', [App\Http\Controllers\SecretariaControll
 Route::post('/admin/secretarias/create', [App\Http\Controllers\SecretariaController::class, 'store'])
 ->name('admin.secretarias.store')
 ->middleware('auth');
+
+Route::get('/admin/secretarias/{id}', [App\Http\Controllers\SecretariaController::class, 'show'])
+    ->name('admin.secretarias.show')
+    ->middleware('auth');
     

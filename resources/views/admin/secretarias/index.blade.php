@@ -39,10 +39,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Nombres</th>
                         <th scope="col">Apellidos</th>
-                        <th scope="col">C.I.</th>
                         <th scope="col">Celular</th>
-                        <th scope="col">Fecha de Nacimiento</th>
-                        <th scope="col">Dirección</th>
                         <th scope="col">Correo Electrónico</th>
                         <th scope="col">Acciones</th>
                     </tr>
@@ -57,11 +54,8 @@
                             <th scope="row">{{ $contador++ }}</th>
                             <td>{{ $secretaria->nombres }}</td>
                             <td>{{ $secretaria->apellidos }}</td>
-                            <td>{{ $secretaria->ci }}</td>
                             <td>{{ $secretaria->celular }}</td>
-                            <td>{{ $secretaria->fecha_nacimiento }}</td>
-                            <td>{{ $secretaria->direccion }}</td>
-                            <td>{{ $secretaria->email }}</td>
+                            <td>{{ $secretaria->user->email }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Exemplo Basico">
                                     <a href="{{ url('admin/secretarias/'.$secretaria->id) }}" title="Ver" type="button" class="btn btn-info btn-sm">

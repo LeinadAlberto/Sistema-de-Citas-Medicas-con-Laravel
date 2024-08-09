@@ -87,7 +87,12 @@ class SecretariaController extends Controller
 
     }
 
-    public function show(Secretaria $secretaria) {
+    public function show($id) {
+
+        $secretaria = Secretaria::with('user')->findOrFail($id);
+
+        return view('admin.secretarias.show', compact('secretaria'));
+
     }
 
     public function edit(Secretaria $secretaria) {
