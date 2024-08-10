@@ -132,6 +132,32 @@
                                 </ul>
                             </li>
 
+                            <!-- Pacientes -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas bi bi-person-wheelchair"></i>
+                                    <p>
+                                        Pacientes
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/pacientes/create') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Crear Pacientes</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/pacientes') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Listar Pacientes</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Cerrar Sesión -->
                             <li class="nav-item">
                                 <a href="#" class="nav-link" style="background: #751332;">
                                     <i class="nav-icon fas bi bi-door-closed"></i>
