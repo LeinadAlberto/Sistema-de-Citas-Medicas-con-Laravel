@@ -136,6 +136,32 @@ class SecretariaController extends Controller
 
     }
 
-    public function destroy(Secretaria $secretaria) {
+    public function confirmDelete($id) {
+
+        $secretaria = Secretaria::with('user')->findOrFail($id);
+
+        return view('admin.secretarias.delete', compact('secretaria'));
+
+    }
+
+
+    public function destroy($id) {
+
+        $secretaria = Secretaria::find($id);
+
+        /* Eliminamos el Usuario asociado */
+
+        $user = $secretaria->user;
+
+        $user->delete();
+
+        /* Eliminamos a la Secretaria */
+
+        $secretaria->delete();
+
+        return redirect()->route('admin.secretarias.index')
+            ->with('mensaje', 'Registro eliminado exitosamente.')
+            ->with('icono', 'success');
+
     }
 }

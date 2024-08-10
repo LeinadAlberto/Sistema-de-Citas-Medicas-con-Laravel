@@ -131,7 +131,7 @@ class UsuarioController extends Controller
         User::destroy($id);
 
         return redirect()->route('admin.usuarios.index')
-            ->with('mensaje', 'Usuario eliminado exitosamente.')
+            ->with('mensaje', 'Registro eliminado exitosamente.')
             ->with('icono', 'success');
     }
 

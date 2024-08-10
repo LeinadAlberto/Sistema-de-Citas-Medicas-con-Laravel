@@ -9,7 +9,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Principal</a></li>
-                    <li class="breadcrumb-item active">Crear Usuario</li>
+                    <li class="breadcrumb-item active">Eliminar Usuario</li>
                 </ol>
             </div>
         </div>
@@ -17,8 +17,13 @@
 @endsection
 
 @section('content')
+
+    <div class="col-md-3"></div>
+
     <div class="col-md-6">
+
         <div class="card card-outline card-danger">
+
             <div class="card-header">
                 <h3 class="card-title text-danger">¿Estas seguro de eliminar este registro?</h3>
             </div>
@@ -65,8 +70,15 @@
                             </div>
                         </div>
                     </div>
+
                 </form>
+
             </div><!-- /.card-body -->
+
         </div><!-- /.card -->
-    </div>
+        
+    </div><!-- /.col-md-6 -->
+
+    <div class="col-md-3"></div>
+
 @endsection
