@@ -9,7 +9,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Principal</a></li>
-                    <li class="breadcrumb-item active">Crear Usuario</li>
+                    <li class="breadcrumb-item active">Editar Usuario</li>
                 </ol>
             </div>
         </div>
@@ -27,7 +27,7 @@
 
                 <form action="{{ url('/admin/usuarios/'.$usuario->id) }}" method="POST">
 
-                    @csrf <!-- Genera un token de protección contra ataques CSRF (Cross-Site Request Forgery). -->
+                    @csrf 
                     
                     @method('PUT')
 
