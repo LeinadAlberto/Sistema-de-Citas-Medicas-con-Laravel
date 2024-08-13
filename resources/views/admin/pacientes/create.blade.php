@@ -63,8 +63,8 @@
                         <!-- Número de Seguro -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="">Nro. de Seguro <b class="text-danger">*</b></label>
-                                <input name="nro_seguro" type="text" value="{{ old('nro_seguro') }}" class="form-control" required>
+                                <label for="">Nro. de Seguro</label>
+                                <input name="nro_seguro" type="text" value="{{ old('nro_seguro') }}" class="form-control">
                                 @error('nro_seguro')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -88,6 +88,7 @@
                             <div class="form-group">
                                 <label for="">Género</label>
                                 <select name="genero" id="" class="form-control">
+                                    <option value="" selected>Elija una opción</option>
                                     <option value="M">Masculino</option>
                                     <option value="F">Femenino</option>
                                 </select>
@@ -96,7 +97,7 @@
                         <!-- Celular -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="">Celular</label>
+                                <label for="">Celular <b class="text-danger">*</b></label>
                                 <input name="celular" type="number" value="{{ old('celular') }}" class="form-control" required>
                                 @error('celular')
                                     <small class="text-danger">{{ $message }}</small>
@@ -106,8 +107,8 @@
                         <!-- Correo Electrónico -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="">Correo Electrónico <b class="text-danger">*</b></label>
-                                <input name="correo" type="email" value="{{ old('correo') }}" class="form-control" required>
+                                <label for="">Correo Electrónico</label>
+                                <input name="correo" type="email" value="{{ old('correo') }}" class="form-control" placeholder="correo@ejemplo.com">
                                 @error('correo')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -115,10 +116,9 @@
                         </div>
                     </div>
 
-                    <!-- Contraseña -->
                     <div class="row">
                         <!-- Dirección -->
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="form-group">
                                 <label for="">Dirección <b class="text-danger">*</b></label>
                                 <input name="direccion" type="address" value="{{ old('direccion') }}" class="form-control" required>
@@ -127,41 +127,54 @@
                                 @enderror
                             </div>
                         </div>
-                        <!-- Género -->
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="">Grupo Sanguíneo</label>
-                                <select name="grupo_sanguineo " id="" class="form-control">
-                                    <option value="M">A+</option>
-                                    <option value="F">A-</option>
-                                    <option value="F">B+</option>
-                                    <option value="F">B-</option>
-                                    <option value="F">AB+</option>
-                                    <option value="F">AB-</option>
-                                    <option value="F">O+</option>
-                                    <option value="F">O-</option>
-                                </select>
-                            </div>
-                        </div>
                         <!-- Alergias -->
-                        <div class="col-md-3">
+                        <div class="col-md-5">
                             <div class="form-group">
-                                <label for="">Alergias <b class="text-danger">*</b></label>
-                                <input name="alergias" type="text" value="{{ old('alergias') }}" class="form-control" required>
+                                <label for="">Alergias</label>
+                                <input name="alergias" type="text" value="{{ old('alergias') }}" class="form-control">
                                 @error('alergias')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
                         </div>
+                        <!-- Grupo Sanguíneo -->
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="">Grupo Sanguíneo</label>
+                                <select name="grupo_sanguineo " id="" class="form-control">
+                                    <option value="" selected>Elija una opción</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Repetir Contraseña -->
+                    
                     <div class="row">
-                        <div class="col-md-12">
+                        <!-- Contacto de Emergencia -->
+                        <div class="col-md-3">
                             <div class="form-group">
-                                <label for="">Repetir Contraseña <b class="text-danger">*</b></label>
-                                <input name="password_confirmation" type="password" value="{{ old('password_confirmation') }}" class="form-control" required>
-                                @error('password_confirmation')
+                                <label for="">Contacto de Emergencia <b class="text-danger">*</b></label>
+                                <input name="contacto_emergencia" type="number" value="{{ old('contacto_emergencia') }}" class="form-control" required>
+                                @error('contacto_emergencia')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <!-- Observaciones -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Observaciones</label>
+                                <textarea name="observaciones" id="" class="form-control" cols="50" rows="3" value="{{ old('observaciones') }}">
+                                </textarea>
+                                @error('observaciones')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
@@ -172,12 +185,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <a href="{{ url('admin/usuarios') }}" class="btn btn-secondary">
+                                <a href="{{ url('admin/pacientes') }}" class="btn btn-secondary">
                                     Cancelar
                                 </a>
     
                                 <button type="submit" class="btn btn-info">
-                                    Registrar Usuario
+                                    Registrar Paciente
                                 </button>
                             </div>
                         </div>
