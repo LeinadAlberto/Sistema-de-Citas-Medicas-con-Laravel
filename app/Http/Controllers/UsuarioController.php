@@ -36,9 +36,7 @@ class UsuarioController extends Controller
         $request->validate([
 
             'name'=>'required|max:250',
-
             'email'=>'required|max:250|unique:users',
-
             'password'=>'required|max:250|confirmed'
 
         ]);
@@ -46,9 +44,7 @@ class UsuarioController extends Controller
         $usuario = new User();
 
         $usuario->name = $request->name;
-
         $usuario->email = $request->email;
-
         $usuario->password = Hash::make($request['password']);
 
         $usuario->save();

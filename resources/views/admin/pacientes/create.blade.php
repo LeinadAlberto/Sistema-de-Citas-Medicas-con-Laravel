@@ -77,7 +77,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Fecha de Nacimiento <b class="text-danger">*</b></label>
-                                <input name="fecha_nacimiento " type="date" value="{{ old('fecha_nacimiento ') }}" class="form-control" required>
+                                <input name="fecha_nacimiento" type="date" value="{{ old('fecha_nacimiento') }}" class="form-control" required>
                                 @error('fecha_nacimiento ')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -86,11 +86,11 @@
                         <!-- Género -->
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="">Género</label>
+                                <label for="">Género <b class="text-danger">*</b></label>
                                 <select name="genero" id="" class="form-control">
                                     <option value="" selected>Elija una opción</option>
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Femenino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
                                 </select>
                             </div>
                         </div>
@@ -132,16 +132,13 @@
                             <div class="form-group">
                                 <label for="">Alergias</label>
                                 <input name="alergias" type="text" value="{{ old('alergias') }}" class="form-control">
-                                @error('alergias')
-                                    <small class="text-danger">{{ $message }}</small>
-                                @enderror
                             </div>
                         </div>
                         <!-- Grupo Sanguíneo -->
                         <div class="col-md-2">
                             <div class="form-group">
-                                <label for="">Grupo Sanguíneo</label>
-                                <select name="grupo_sanguineo " id="" class="form-control">
+                                <label for="">Grupo Sanguíneo <b class="text-danger">*</b></label>
+                                <select name="grupo_sanguineo" id="" class="form-control">
                                     <option value="" selected>Elija una opción</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
