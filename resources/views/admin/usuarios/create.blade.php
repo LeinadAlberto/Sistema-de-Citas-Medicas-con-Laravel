@@ -17,6 +17,9 @@
 @endsection
 
 @section('content')
+
+    <div class="col-md-3"></div>
+
     <div class="col-md-6">
         <div class="card card-outline card-info">
             <div class="card-header">
@@ -98,4 +101,6 @@
             </div><!-- /.card-body -->
         </div><!-- /.card -->
     </div>
+
+    <div class="col-md-3"></div>
 @endsection

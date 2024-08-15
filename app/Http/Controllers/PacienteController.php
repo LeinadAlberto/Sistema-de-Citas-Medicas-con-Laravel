@@ -125,7 +125,21 @@ class PacienteController extends Controller
 
     }
 
-    public function destroy(Paciente $paciente) {
+    public function confirmDelete($id) {
+
+        $paciente = Paciente::findOrFail($id);
+
+        return view('admin.pacientes.delete', compact('paciente'));
+
+    }
+
+    public function destroy($id) {
+
+        Paciente::destroy($id);
+
+        return redirect()->route('admin.pacientes.index')
+            ->with('mensaje', 'Registro eliminado exitosamente.')
+            ->with('icono', 'success');
         
     }
 }

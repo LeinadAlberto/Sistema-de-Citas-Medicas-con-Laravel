@@ -93,15 +93,15 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ url('admin/usuarios/create') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Crear Usuarios</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a href="{{ url('admin/usuarios') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Listar Usuarios</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/usuarios/create') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Crear Usuarios</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -118,16 +118,16 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
+                                        <a href="{{ url('admin/secretarias') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Listar Secretarias</p>
+                                        </a>
+                                    <li class="nav-item">
                                         <a href="{{ url('admin/secretarias/create') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Crear Secretarias</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="{{ url('admin/secretarias') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Listar Secretarias</p>
-                                        </a>
                                     </li>
                                 </ul>
                             </li>
@@ -143,15 +143,15 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ url('admin/pacientes/create') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Crear Pacientes</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a href="{{ url('admin/pacientes') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Listar Pacientes</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/pacientes/create') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Crear Pacientes</p>
                                         </a>
                                     </li>
                                 </ul>

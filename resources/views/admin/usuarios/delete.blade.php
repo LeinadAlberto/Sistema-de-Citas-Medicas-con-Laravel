@@ -32,7 +32,7 @@
 
                 <form action="{{ url('/admin/usuarios/'.$usuario->id) }}" method="POST">
 
-                    @csrf <!-- Genera un token de protección contra ataques CSRF (Cross-Site Request Forgery). -->
+                    @csrf 
                     
                     @method('DELETE')
 
@@ -56,7 +56,7 @@
                         </div>
                     </div>
 
-                    <!-- Botones Cancelar | Registrar -->
+                    <!-- Botones Cancelar | Eliminar -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">

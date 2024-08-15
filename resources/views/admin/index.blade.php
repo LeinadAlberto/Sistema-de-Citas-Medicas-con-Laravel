@@ -27,8 +27,8 @@
                 <p>Registros de Usuarios</p>
             </div>
             <a href="{{ url('admin/usuarios/create')}}">
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
+                <div title="Registrar Usuario" class="icon">
+                    <i class="fas bi bi-people-fill"></i>
                 </div>
             </a>
             <a href="{{ url('admin/usuarios')}}" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
@@ -42,11 +42,26 @@
                 <p>Registros de Secretarias</p>
             </div>
             <a href="{{ url('admin/secretarias/create')}}">
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
+                <div title="Registrar Secretaria" class="icon">
+                    <i class="fas bi bi-person-circle"></i>
                 </div>
             </a>
             <a href="{{ url('admin/secretarias')}}" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>{{ $total_pacientes }}</h3>
+                <p>Registros de Pacientes</p>
+            </div>
+            <a href="{{ url('admin/pacientes/create')}}">
+                <div title="Registrar Paciente" class="icon">
+                    <i class="fas bi bi-person-wheelchair"></i>
+                </div>
+            </a>
+            <a href="{{ url('admin/pacientes')}}" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
     
