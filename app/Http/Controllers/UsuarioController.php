@@ -78,26 +78,21 @@ class UsuarioController extends Controller
         $request->validate([
 
             'name'=>'required|max:250',
-
             /*  
                 Especifica que el valor del campo 'email' debe ser único en la columna 'email' de la tabla 'users', 
                 excepto para el registro que tiene el mismo 'id' que '$usuario->id'.  
             */
             'email'=>'required|max:250|unique:users,email,'.$usuario->id, 
-
             'password'=>'nullable|max:250|confirmed'
 
         ]);
 
        
         $usuario->name = $request->name;
-
         $usuario->email = $request->email;
 
         if ( $request->filled('password') ) {
-
             $usuario->password = Hash::make($request['password']);
-
         }
 
         $usuario->save();

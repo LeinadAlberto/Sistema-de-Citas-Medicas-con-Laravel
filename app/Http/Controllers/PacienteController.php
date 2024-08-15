@@ -75,12 +75,54 @@ class PacienteController extends Controller
         
     }
 
-    public function edit(Paciente $paciente) {
+    public function edit($id) {
+
+        $paciente = Paciente::findOrFail($id);
+
+        return view('admin.pacientes.edit', compact('paciente'));
         
     }
 
-    public function update(Request $request, Paciente $paciente) {
+    public function update(Request $request, $id) {
+
+        $paciente = Paciente::find($id);
         
+        $request->validate([
+
+            'nombres'=>'required',
+            'apellidos'=>'required',
+            'ci'=>'required|unique:pacientes,ci,'.$paciente->id,
+            'nro_seguro' => 'unique:pacientes,nro_seguro,'.$paciente->id,
+            'fecha_nacimiento' => 'required',
+            'genero' => 'required',
+            'celular'=>'required',
+            'correo'=>'required|max:250|unique:pacientes,correo,'.$paciente->id,
+            'direccion'=>'required',
+            'grupo_sanguineo'=>'required',
+            'contacto_emergencia' => 'required'
+            
+        ]);
+
+        $paciente->nombres = $request->nombres;
+        $paciente->apellidos = $request->apellidos;
+        $paciente->ci = $request->ci;
+        $paciente->nro_seguro = $request->nro_seguro;
+        $paciente->fecha_nacimiento = $request->fecha_nacimiento;
+        $paciente->genero = $request->genero;
+        $paciente->celular = $request->celular;
+        $paciente->correo = $request->correo;
+        $paciente->direccion = $request->direccion;
+        $paciente->grupo_sanguineo = $request->grupo_sanguineo;
+        $paciente->alergias = $request->alergias;
+        $paciente->contacto_emergencia = $request->contacto_emergencia;
+        $paciente->observaciones = $request->observaciones;
+
+        $paciente->save();
+
+        return redirect()->route('admin.pacientes.index')
+        ->with('mensaje', 'Paciente modificado exitosamente.')
+        ->with('icono', 'success');
+
     }
 
     public function destroy(Paciente $paciente) {
