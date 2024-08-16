@@ -17,10 +17,32 @@ class ConsultorioController extends Controller
 
     public function create() {
         
+        return view('admin.consultorios.create');
+
     }
 
     public function store(Request $request) {
         
+        /* $datos = request()->all();
+
+        return response()->json($datos); */  
+
+        $request->validate([
+
+            'nombre'=>'required',
+            'ubicacion'=>'required',
+            'capacidad'=>'required',
+            'especialidad' => 'required',
+            'estado'=>'required'
+    
+        ]);
+
+        Consultorio::create($request->all());
+
+        return redirect()->route('admin.consultorios.index')
+        ->with('mensaje', 'Consultorio registrado exitosamente.')
+        ->with('icono', 'success');
+
     }
 
     public function show(Consultorio $consultorio) {
