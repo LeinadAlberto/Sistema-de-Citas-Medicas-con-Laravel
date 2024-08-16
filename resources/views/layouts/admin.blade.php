@@ -85,7 +85,7 @@
                             <!-- Usuarios-->
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas bi bi-people-fill"></i>
+                                    <i class="nav-icon fas bi bi-people"></i>
                                     <p>
                                         Usuarios
                                         <i class="right fas fa-angle-left"></i>
@@ -101,7 +101,7 @@
                                     <li class="nav-item">
                                         <a href="{{ url('admin/usuarios/create') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Crear Usuarios</p>
+                                            <p>Crear Usuario</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -125,7 +125,7 @@
                                     <li class="nav-item">
                                         <a href="{{ url('admin/secretarias/create') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Crear Secretarias</p>
+                                            <p>Crear Secretaria</p>
                                         </a>
                                     </li>
                                     </li>
@@ -151,7 +151,32 @@
                                     <li class="nav-item">
                                         <a href="{{ url('admin/pacientes/create') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Crear Pacientes</p>
+                                            <p>Crear Paciente</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Consultorios -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas bi bi-hospital"></i>
+                                    <p>
+                                        Consultorios
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/consultorios') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Listar Consultorios</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/consultorios/create') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Crear Consultorio</p>
                                         </a>
                                     </li>
                                 </ul>
