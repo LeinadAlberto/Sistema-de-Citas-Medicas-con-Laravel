@@ -45,8 +45,12 @@ class ConsultorioController extends Controller
 
     }
 
-    public function show(Consultorio $consultorio) {
+    public function show($id) {
         
+        $consultorio = Consultorio::findOrFail($id);
+
+        return view('admin.consultorios.show', compact('consultorio'));
+
     }
 
     public function edit(Consultorio $consultorio) {
