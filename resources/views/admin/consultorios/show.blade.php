@@ -59,7 +59,11 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Teléfono</label>
-                            <input name="telefono" type="number" value="{{ $consultorio->telefono }}" class="form-control" disabled>
+                            @if ( $consultorio->telefono == null )
+                                <input value="Sin Teléfono fijo" class="form-control" disabled>
+                            @else
+                                <input value="{{ $consultorio->telefono }}" class="form-control" disabled>
+                            @endif
                         </div>
                     </div>
                     <!-- Especialidad -->

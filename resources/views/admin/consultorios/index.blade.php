@@ -58,7 +58,12 @@
                                 <td>{{ $consultorio->nombre }}</td>
                                 <td>{{ $consultorio->ubicacion }}</td>
                                 <td>{{ $consultorio->capacidad }}</td>
-                                <td>{{ $consultorio->telefono }}</td>
+                                @if ( $consultorio->telefono == null )
+                                    <td>Sin Teléfono fijo</td>
+                                @else
+                                    <td>{{ $consultorio->telefono }}</td>
+                                @endif
+                                
                                 <td>{{ $consultorio->especialidad }}</td>
                                 <td>{{ $consultorio->estado }}</td>
                                 <td>
