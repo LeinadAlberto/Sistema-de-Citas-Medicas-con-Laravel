@@ -83,7 +83,21 @@ class ConsultorioController extends Controller
 
     }
 
-    public function destroy(Consultorio $consultorio) {
+    public function confirmDelete($id) {
+
+        $consultorio = Consultorio::findOrFail($id);
+
+        return view('admin.consultorios.delete', compact('consultorio'));
+
+    }
+
+    public function destroy($id) {
+
+        Consultorio::destroy($id);
+
+        return redirect()->route('admin.consultorios.index')
+            ->with('mensaje', 'Registro eliminado exitosamente.')
+            ->with('icono', 'success');
         
     }
 }
