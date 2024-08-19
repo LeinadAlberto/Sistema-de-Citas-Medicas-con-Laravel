@@ -124,7 +124,32 @@ class DoctorController extends Controller
 
     }
 
+    public function confirmDelete($id) {
+
+        $doctor = Doctor::with('user')->findOrFail($id);
+
+        return view('admin.doctores.delete', compact('doctor'));
+
+    }
+
     public function destroy($id) {
         
+        $doctor = Doctor::find($id);
+
+        /* Eliminamos el Usuario asociado */
+
+        $user = $doctor->user;
+
+        $user->delete();
+
+        /* Eliminamos al Doctor */
+
+        $doctor->delete();
+
+        return redirect()->route('admin.doctores.index')
+            ->with('mensaje', 'Registro eliminado exitosamente.')
+            ->with('icono', 'success');
+
+
     }
 }
