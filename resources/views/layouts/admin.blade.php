@@ -182,6 +182,31 @@
                                 </ul>
                             </li>
 
+                            <!-- Doctores -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas bi bi-person-lines-fill"></i>
+                                    <p>
+                                        Doctores
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/doctores') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Listar Doctores</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/doctores/create') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Crear Doctor</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
                             <!-- Cerrar Sesión -->
                             <li class="nav-item">
                                 <a href="#" class="nav-link" style="background: #751332;">

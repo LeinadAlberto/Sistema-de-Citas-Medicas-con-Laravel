@@ -18,6 +18,13 @@ class Doctor extends Model
         'user_id'
     ];
 
+     // Un doctor pertenece  a un usuario
+     public function user() {
+
+        return $this->belongsTo(User::class);
+
+    }
+
     // Un doctor pertenece  a un consultorio
     public function consultorio() {
 
