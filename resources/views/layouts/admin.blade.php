@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -207,6 +208,31 @@
                                 </ul>
                             </li>
 
+                            <!-- Doctores -->
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas bi bi-calendar2-week"></i>
+                                    <p>
+                                        Horarios
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/horarios') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Listar Horarios</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('admin/horarios/create') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Crear Horario</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
                             <!-- Cerrar Sesión -->
                             <li class="nav-item">
                                 <a href="#" class="nav-link" style="background: #751332;">
@@ -298,5 +324,7 @@
         <script src="{{ url('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ url('dist/js/adminlte.min.js') }}"></script>
+
     </body>
+
 </html>
