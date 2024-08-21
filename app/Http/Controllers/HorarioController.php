@@ -45,9 +45,11 @@ class HorarioController extends Controller
 
     }
 
-    public function show(Horario $horario) {
+    public function show($id) {
     
+        $horario = Horario::with('doctor', 'consultorio')->get()->find($id);
 
+        return view('admin.horarios.show', compact('horario'));
 
     }
 
