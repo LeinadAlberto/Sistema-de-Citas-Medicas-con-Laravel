@@ -17,6 +17,7 @@
 @endsection
 
 @section('content')
+
 <div class="col-md-12">
 
     <div class="card card-outline card-info">
@@ -143,4 +144,95 @@
     </div><!-- /.card-->
     
 </div><!-- /.col-md-10-->
+
+<div class="col-md-12">
+
+    <div class="card card-outline card-info">
+
+        <div class="card-header">
+            <h3 class="card-title">Calendario de Atención de Doctores</h3>
+        </div><!-- /.card-header-->
+
+        <div class="card-body">
+
+            <table style="font-size: 13px;" class="table table-striped table-bordered table-hover table-sm">
+
+                <thead class="thead-dark text-center">
+                    <tr>
+                        <th width="12%">Hora</th>
+                        <th width="15%">Lunes</th>
+                        <th width="15%">Martes</th>
+                        <th width="15%">Miércoles</th>
+                        <th width="15%">Jueves</th>
+                        <th width="14%">Viernes</th>
+                        <th width="14%">Sábado</th>
+                        
+                    </tr>
+                </thead>
+
+                <tbody class="text-center">
+                    {{-- <tr>
+                        <td height="50px" style="vertical-align: middle; font-weight: bold;">08:00 - 09:00</td>
+                        <td></td>
+                        <td>Carla Vanesa Ticona Lopez</td>
+                        <td></td>
+                        <td></td>
+                        <td>Carla Vanesa Ticona Lopez</td>
+                        <td></td>
+                    </tr> --}}
+                    @php
+                        $horas = [ "08:00:00 - 09:00:00", 
+                                    "09:00:00 - 10:00:00", 
+                                    "10:00:00 - 11:00:00", 
+                                    "11:00:00 - 12:00:00", 
+                                    "12:00:00 - 13:00:00", 
+                                    "13:00:00 - 14:00:00", 
+                                    "14:00:00 - 15:00:00", 
+                                    "15:00:00 - 16:00:00", 
+                                    "16:00:00 - 17:00:00", 
+                                    "17:00:00 - 18:00:00", 
+                                    "18:00:00 - 19:00:00", 
+                                    "19:00:00 - 20:00:00" ];
+
+                        $diasSemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+                    @endphp
+
+                    @foreach ($horas as $hora)
+
+                        @php
+                            list($hora_inicio, $hora_fin) = explode(" - ", $hora);
+                        @endphp
+                        
+                        <tr>
+                            <td height="50px" style="vertical-align: middle; font-weight: bold;">
+                                {{ $hora }}
+                            </td>
+
+                            @foreach ($diasSemana as $dia)
+                                @php
+                                    $nombre_doctor = "";
+                                    foreach ($horarios as $horario) {
+                                        if ($horario->dia == $dia &&
+                                        $hora_inicio >= $horario->hora_inicio &&
+                                        $hora_fin <= $horario->hora_fin) {
+                                            $nombre_doctor = $horario->doctor->nombres." ".$horario->doctor->apellidos;
+                                            break;
+                                        }
+                                    }
+                                @endphp
+                                <td>{{ $nombre_doctor }}</td>
+                            @endforeach
+                        </tr>
+
+                    @endforeach
+                </tbody>
+
+            </table>
+
+        </div><!-- /.card-body-->
+
+    </div><!-- /.card-->
+    
+</div><!-- /.col-md-10-->
+
 @endsection
