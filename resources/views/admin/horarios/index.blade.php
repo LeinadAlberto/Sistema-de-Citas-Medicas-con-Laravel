@@ -212,12 +212,16 @@
                                 @php
                                     $nombre_doctor = "";
                                     foreach ($horarios as $horario) {
-                                        if ($horario->dia == $dia &&
-                                        $hora_inicio >= $horario->hora_inicio &&
-                                        $hora_fin <= $horario->hora_fin) {
+
+                                        if ($horario->dia == $dia && 
+                                            $hora_inicio >= $horario->hora_inicio && 
+                                            $hora_fin <= $horario->hora_fin) {
+
                                             $nombre_doctor = $horario->doctor->nombres." ".$horario->doctor->apellidos;
-                                            break;
+                                            break; 
+                                                 
                                         }
+                           
                                     }
                                 @endphp
                                 <td>{{ $nombre_doctor }}</td>

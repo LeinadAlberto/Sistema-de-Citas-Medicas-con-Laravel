@@ -28,14 +28,43 @@ class HorarioController extends Controller
     }
 
     public function store(Request $request) {
-    
+        
+        // Validar los datos del formulario
         $request->validate([
 
             'dia'=>'required',
-            'hora_inicio'=>'required',
-            'hora_fin'=>'required'
+            'hora_inicio'=>'required|date_format:H:i', /* Valida que tenga un formato de hora de 24h */
+            'hora_fin'=>'required|date_format:H:i|after:hora_inicio' /* Valida que hora_fin sea una hora posterior a la hora_inicio */
             
         ]);
+
+        /* Objetivo: Comprobar si ya existe un horario en la base de datos que se superpone con el nuevo horario que se está intentando registrar. */
+        $horarioExistente = Horario::where("dia", $request->dia) // Filtra los registros para que coincidan con el día (dia) especificado en la solicitud.
+            ->where(function ($query) use ($request) { // Añade una condición adicional, donde se verifica si hay un solapamiento en los horarios.
+                /* Primer 'where': Busca horarios cuya hora_inicio está dentro del rango del nuevo horario */
+                $query->where(function ($query) use ($request) {
+                    $query->where("hora_inicio", ">=", $request->hora_inicio)
+                        ->where("hora_inicio", "<", $request->hora_fin);
+                })  /* Segundo 'orWhere': Busca horarios cuya hora_fin está dentro del rango del nuevo horario */
+                    ->orWhere(function ($query) use ($request) {
+                        $query->where("hora_fin", ">", $request->hora_inicio)
+                        ->where("hora_fin", "<=", $request->hora_fin);
+                })  /* Tercer 'orWhere': Busca horarios que abarcan completamente el rango del nuevo horario */
+                    ->orWhere(function ($query) use ($request) {
+                        $query->where("hora_inicio", "<", $request->hora_inicio)
+                        ->where("hora_fin", ">", $request->hora_fin);
+                });
+            })
+            /* Ejecuta la consulta y retorna true si existe al menos un registro que cumple con estas 
+            condiciones, es decir, si hay un horario que se superpone */
+            ->exists();
+        
+        if ($horarioExistente) { // Si existe un horario que se superpone con el que se está intentando registrar, se redirige de vuelta a la página anterior.
+            return redirect()->back()
+                ->withInput() // Mantiene los datos ingresados por el usuario en el formulario.
+                ->with("mensaje", "Ya existe un horario que se superpone con el horario ingresado")
+                ->with("icono", "error");
+        }
 
         Horario::create($request->all());
 

@@ -1,19 +1,26 @@
 @extends('layouts.admin')
 
 @section('content-header')
+
     <div class="container-fluid">
+
         <div class="row mb-2">
+
             <div class="col-sm-6">
                 <h1 class="m-0">Crear Horario</h1>
             </div>
+
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ url('/admin') }}">Principal</a></li>
                     <li class="breadcrumb-item active">Crear Horario</li>
                 </ol>
             </div>
-        </div>
-    </div>
+            
+        </div><!-- /.row -->
+
+    </div><!-- /.container-fluid -->
+
 @endsection
 
 @section('content')
@@ -21,7 +28,9 @@
     <div class="col-md-2"></div>
 
     <div class="col-md-8">
+
         <div class="card card-outline card-info">
+
             <div class="card-header">
                 <h3 class="card-title">Llene los Datos</h3>
             </div>
@@ -32,6 +41,7 @@
 
                     @csrf 
 
+                    <!-- Doctor | Consultorios | Hora Final -->
                     <div class="row">
                         
                         <!-- Doctor -->
@@ -58,15 +68,16 @@
                             </div>
                         </div>
                         
-
                     </div><!-- /.row -->
 
+                    <!-- Día |  Hora Inicio |  -->
                     <div class="row">
+
                         <!-- Día -->
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="">Día <b class="text-danger">*</b></label>
-                                <select name="dia" id="" class="form-control">
+                                <select name="dia" class="form-control">
                                     <option value="Lunes">Lunes</option>
                                     <option value="Martes">Martes</option>
                                     <option value="Miercoles">Miércoles</option>
@@ -99,9 +110,7 @@
                                 @enderror
                             </div>
                         </div>
-
-                        
-
+ 
                     </div><!-- /.row -->
 
                     <!-- Botones Cancelar | Registrar -->
@@ -122,8 +131,10 @@
                 </form>
 
             </div><!-- /.card-body -->
+
         </div><!-- /.card -->
-    </div><!-- /.col -->
+
+    </div><!-- /.col-md-8 -->
 
     <div class="col-md-2"></div>
     
