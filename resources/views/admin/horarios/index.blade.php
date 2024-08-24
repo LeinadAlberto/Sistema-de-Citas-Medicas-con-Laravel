@@ -160,12 +160,13 @@
                 <thead class="thead-dark text-center">
                     <tr>
                         <th width="12%">Hora</th>
-                        <th width="15%">Lunes</th>
-                        <th width="15%">Martes</th>
-                        <th width="15%">Miércoles</th>
-                        <th width="15%">Jueves</th>
-                        <th width="14%">Viernes</th>
-                        <th width="14%">Sábado</th>
+                        <th width="13%">Lunes</th>
+                        <th width="13%">Martes</th>
+                        <th width="13%">Miércoles</th>
+                        <th width="13%">Jueves</th>
+                        <th width="12%">Viernes</th>
+                        <th width="12%">Sábado</th>
+                        <th width="12%">Domingo</th>
                         
                     </tr>
                 </thead>
@@ -194,7 +195,7 @@
                                     "18:00:00 - 19:00:00", 
                                     "19:00:00 - 20:00:00" ];
 
-                        $diasSemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+                        $diasSemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
                     @endphp
 
                     @foreach ($horas as $hora)
