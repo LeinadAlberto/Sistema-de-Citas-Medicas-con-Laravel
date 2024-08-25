@@ -13,7 +13,9 @@ class HorarioController extends Controller
     
         $horarios = Horario::with('doctor', 'consultorio')->get();
 
-        return view('admin.horarios.index', compact('horarios'));
+        $consultorios = Consultorio::all();
+
+        return view('admin.horarios.index', compact('horarios', 'consultorios'));
 
     }
 

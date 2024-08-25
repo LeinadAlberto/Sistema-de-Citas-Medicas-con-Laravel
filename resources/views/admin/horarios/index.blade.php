@@ -155,6 +155,51 @@
 
         <div class="card-body">
 
+            <div class="row">
+                <div class="col-3">
+
+                    <div class="form-group" width="100px">
+                        <label for="">Consultorios</label>
+                        <select id="consultorio_select" name="consultorio_id" class="form-control">
+                            @foreach($consultorios as $consultorio)
+                                <option value="{{ $consultorio->id }}">{{ $consultorio->nombre . " | " . $consultorio->ubicacion }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $('#consultorio_select').on('change', function() {
+
+                    var consultorio_id = $('#consultorio_select').val();
+
+                    /* alert(consultorio_id); */
+
+                    if (consultorio_id) {
+
+                        $.ajax({
+                            url: '/admin/horarios/consultorios/' + consultorio_id,
+                            type: 'GET',
+                            success: function(data) {
+                                $('#consultorio_info').html(data);
+                            },
+                            error: function() {
+                                alert('Error al obtener los datos del consultorio');
+                            }
+                        });
+
+                    } else {
+                        $('#consultorio_info').html(data);
+                    }
+
+                });
+            </script>
+
+            <div id="consultorio_info">
+
+            </div>
+
             <table style="font-size: 13px;" class="table table-striped table-bordered table-hover table-sm">
 
                 <thead class="thead-dark text-center">
