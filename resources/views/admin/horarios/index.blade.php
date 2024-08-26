@@ -174,12 +174,17 @@
 
                     var consultorio_id = $('#consultorio_select').val();
 
+                    var url = "{{ route('admin.horarios.cargar_datos_consultorios', ':id') }}";
+
+                    url = url.replace(':id', consultorio_id); 
+
                     /* alert(consultorio_id); */
 
                     if (consultorio_id) {
 
                         $.ajax({
-                            url: '/admin/horarios/consultorios/' + consultorio_id,
+                            /* url: "{{ url('/admin/horarios/consultorios/') }}" + "/" + consultorio_id, */
+                            url: url,
                             type: 'GET',
                             success: function(data) {
                                 $('#consultorio_info').html(data);
@@ -200,84 +205,7 @@
 
             </div>
 
-            <table style="font-size: 13px;" class="table table-striped table-bordered table-hover table-sm">
-
-                <thead class="thead-dark text-center">
-                    <tr>
-                        <th width="12%">Hora</th>
-                        <th width="13%">Lunes</th>
-                        <th width="13%">Martes</th>
-                        <th width="13%">Miércoles</th>
-                        <th width="13%">Jueves</th>
-                        <th width="12%">Viernes</th>
-                        <th width="12%">Sábado</th>
-                        <th width="12%">Domingo</th>
-                        
-                    </tr>
-                </thead>
-
-                <tbody class="text-center">
-                    {{-- <tr>
-                        <td height="50px" style="vertical-align: middle; font-weight: bold;">08:00 - 09:00</td>
-                        <td></td>
-                        <td>Carla Vanesa Ticona Lopez</td>
-                        <td></td>
-                        <td></td>
-                        <td>Carla Vanesa Ticona Lopez</td>
-                        <td></td>
-                    </tr> --}}
-                    @php
-                        $horas = [ "08:00:00 - 09:00:00", 
-                                    "09:00:00 - 10:00:00", 
-                                    "10:00:00 - 11:00:00", 
-                                    "11:00:00 - 12:00:00", 
-                                    "12:00:00 - 13:00:00", 
-                                    "13:00:00 - 14:00:00", 
-                                    "14:00:00 - 15:00:00", 
-                                    "15:00:00 - 16:00:00", 
-                                    "16:00:00 - 17:00:00", 
-                                    "17:00:00 - 18:00:00", 
-                                    "18:00:00 - 19:00:00", 
-                                    "19:00:00 - 20:00:00" ];
-
-                        $diasSemana = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
-                    @endphp
-
-                    @foreach ($horas as $hora)
-
-                        @php
-                            list($hora_inicio, $hora_fin) = explode(" - ", $hora);
-                        @endphp
-                        
-                        <tr>
-                            <td height="50px" style="vertical-align: middle; font-weight: bold;">
-                                {{ $hora }}
-                            </td>
-
-                            @foreach ($diasSemana as $dia)
-                                @php
-                                    $nombre_doctor = "";
-                                    foreach ($horarios as $horario) {
-
-                                        if ($horario->dia == $dia && 
-                                            $hora_inicio >= $horario->hora_inicio && 
-                                            $hora_fin <= $horario->hora_fin) {
-
-                                            $nombre_doctor = $horario->doctor->nombres." ".$horario->doctor->apellidos;
-                                            break; 
-                                                 
-                                        }
-                           
-                                    }
-                                @endphp
-                                <td>{{ $nombre_doctor }}</td>
-                            @endforeach
-                        </tr>
-
-                    @endforeach
-                </tbody>
-
-            </table>
+            
 
         </div><!-- /.card-body-->
 
