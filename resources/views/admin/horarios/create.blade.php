@@ -41,8 +41,53 @@
 
                         @csrf 
     
-                        <!-- Doctor | Consultorios | Hora Final -->
+                        <!-- Consultorios | Doctor | Hora Final -->
                         <div class="row">
+
+                            <!-- Consultorios -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Consultorios <b class="text-danger">*</b></label>
+                                    <select style="font-size: 13px" id="consultorio_select" name="consultorio_id" class="form-control">
+                                        <option>Seleccionar Consultorio</option>
+                                        @foreach($consultorios as $consultorio)
+                                            <option value="{{ $consultorio->id }}">{{ $consultorio->nombre . " | " . $consultorio->ubicacion }}</option>
+                                        @endforeach
+                                    </select>
+
+                                    <script>
+                                        $('#consultorio_select').on('change', function() {
+                        
+                                            var consultorio_id = $('#consultorio_select').val();
+                        
+                                            var url = "{{ route('admin.horarios.cargar_datos_consultorios', ':id') }}";
+                        
+                                            url = url.replace(':id', consultorio_id); 
+                        
+                                            /* alert(consultorio_id); */
+                        
+                                            if (consultorio_id) {
+                        
+                                                $.ajax({
+                                                    /* url: "{{ url('/admin/horarios/consultorios/') }}" + "/" + consultorio_id, */
+                                                    url: url,
+                                                    type: 'GET',
+                                                    success: function(data) {
+                                                        $('#consultorio_info').html(data);
+                                                    },
+                                                    error: function() {
+                                                        alert('Error al obtener los datos del consultorio');
+                                                    }
+                                                });
+                        
+                                            } else {
+                                                $('#consultorio_info').html(data);
+                                            }
+                        
+                                        });
+                                    </script>
+                                </div>
+                            </div>
                             
                             <!-- Doctor -->
                             <div class="col-md-12">
@@ -56,18 +101,6 @@
                                 </div>
                             </div>
     
-                            <!-- Consultorios -->
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="">Consultorios <b class="text-danger">*</b></label>
-                                    <select style="font-size: 13px" name="consultorio_id" class="form-control">
-                                        @foreach($consultorios as $consultorio)
-                                            <option value="{{ $consultorio->id }}">{{ $consultorio->nombre . " | " . $consultorio->ubicacion }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            
                         </div><!-- /.row -->
     
                         <!-- Día |  Hora Inicio |  -->
@@ -117,7 +150,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <a href="{{ url('admin/doctores') }}" class="btn btn-secondary">
+                                    <a href="{{ url('admin/horarios') }}" class="btn btn-secondary">
                                         Cancelar
                                     </a>
         
@@ -134,7 +167,10 @@
 
                 <div class="col-md-9">
 
-                    <table style="font-size: 12px;" class="table table-striped table-bordered table-hover table-sm">
+                    <div id="consultorio_info" style="background: #83bbb0;">
+
+                    </div>
+                    {{-- <table style="font-size: 12px;" class="table table-striped table-bordered table-hover table-sm">
     
                         <thead class="thead-dark text-center">
                             <tr>
@@ -203,7 +239,7 @@
                             @endforeach
                         </tbody>
             
-                    </table>
+                    </table> --}}
 
                 </div>
 

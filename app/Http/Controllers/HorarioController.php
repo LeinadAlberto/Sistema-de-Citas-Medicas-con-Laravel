@@ -72,7 +72,7 @@ class HorarioController extends Controller
 
         Horario::create($request->all());
 
-        return redirect()->route('admin.horarios.index')
+        return redirect()->route('admin.horarios.create')
         ->with('mensaje', 'Horario registrado exitosamente.')
         ->with('icono', 'success');
 

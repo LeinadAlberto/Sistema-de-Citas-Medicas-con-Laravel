@@ -1,12 +1,12 @@
-<table style="font-size: 13px;" class="table table-striped table-bordered table-hover table-sm">
+<table style="font-size: 12px;" class="table table-striped table-bordered table-hover table-sm">
 
     <thead class="thead-dark text-center">
         <tr>
-            <th width="12%">Hora</th>
-            <th width="13%">Lunes</th>
-            <th width="13%">Martes</th>
-            <th width="13%">Miércoles</th>
-            <th width="13%">Jueves</th>
+            <th width="16%">Hora</th>
+            <th width="12%">Lunes</th>
+            <th width="12%">Martes</th>
+            <th width="12%">Miércoles</th>
+            <th width="12%">Jueves</th>
             <th width="12%">Viernes</th>
             <th width="12%">Sábado</th>
             <th width="12%">Domingo</th>

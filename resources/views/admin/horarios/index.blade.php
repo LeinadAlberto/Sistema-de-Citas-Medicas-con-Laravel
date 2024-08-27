@@ -146,71 +146,65 @@
 </div><!-- /.col-md-10-->
 
 <div class="col-md-12">
-
     <div class="card card-outline card-info">
-
-        <div class="card-header">
-            <h3 class="card-title">Calendario de Atención de Doctores</h3>
-        </div><!-- /.card-header-->
-
-        <div class="card-body">
-
-            <div class="row">
-                <div class="col-3">
-
-                    <div class="form-group" width="100px">
-                        <label for="">Consultorios</label>
-                        <select id="consultorio_select" name="consultorio_id" class="form-control">
-                            @foreach($consultorios as $consultorio)
-                                <option value="{{ $consultorio->id }}">{{ $consultorio->nombre . " | " . $consultorio->ubicacion }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+        <div class="row card-header" style="border-bottom: none;">
+            <div class="col-md-6 d-flex align-items-center">
+                    <h3 class="card-title">Calendario de Atención de Doctores</h3>
+            </div>    
+            
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <label class="mr-4">Consultorios</label>
+                <div class="form-group" width="100px">
+                    <select id="consultorio_select" name="consultorio_id" class="form-control">
+                        <option>Seleccionar Consultorio</option>
+                        @foreach($consultorios as $consultorio)
+                            <option value="{{ $consultorio->id }}">{{ $consultorio->nombre . " | " . $consultorio->ubicacion }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
-
-            <script>
-                $('#consultorio_select').on('change', function() {
-
-                    var consultorio_id = $('#consultorio_select').val();
-
-                    var url = "{{ route('admin.horarios.cargar_datos_consultorios', ':id') }}";
-
-                    url = url.replace(':id', consultorio_id); 
-
-                    /* alert(consultorio_id); */
-
-                    if (consultorio_id) {
-
-                        $.ajax({
-                            /* url: "{{ url('/admin/horarios/consultorios/') }}" + "/" + consultorio_id, */
-                            url: url,
-                            type: 'GET',
-                            success: function(data) {
-                                $('#consultorio_info').html(data);
-                            },
-                            error: function() {
-                                alert('Error al obtener los datos del consultorio');
-                            }
-                        });
-
-                    } else {
-                        $('#consultorio_info').html(data);
-                    }
-
-                });
-            </script>
-
-            <div id="consultorio_info">
-
-            </div>
-
-            
-
-        </div><!-- /.card-body-->
-
-    </div><!-- /.card-->
     
-</div><!-- /.col-md-10-->
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('#consultorio_select').on('change', function() {
+
+        var consultorio_id = $('#consultorio_select').val();
+
+        var url = "{{ route('admin.horarios.cargar_datos_consultorios', ':id') }}";
+
+        url = url.replace(':id', consultorio_id); 
+
+        /* alert(consultorio_id); */
+
+        if (consultorio_id) {
+
+            $.ajax({
+                /* url: "{{ url('/admin/horarios/consultorios/') }}" + "/" + consultorio_id, */
+                url: url,
+                type: 'GET',
+                success: function(data) {
+                    $('#consultorio_info').html(data);
+                },
+                error: function() {
+                    alert('Error al obtener los datos del consultorio');
+                }
+            });
+
+        } else {
+            $('#consultorio_info').html(data);
+        }
+
+    });
+</script>
+
+<div class="col-md-12">
+    <div id="consultorio_info" style="background: #83bbb0;">
+            
+    </div>
+</div>
 
 @endsection
