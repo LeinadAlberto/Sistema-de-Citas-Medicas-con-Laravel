@@ -208,7 +208,7 @@
                                 </ul>
                             </li>
 
-                            <!-- Doctores -->
+                            <!-- Horarios -->
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas bi bi-calendar2-week"></i>

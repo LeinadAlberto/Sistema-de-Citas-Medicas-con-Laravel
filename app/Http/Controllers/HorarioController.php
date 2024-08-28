@@ -38,12 +38,13 @@ class HorarioController extends Controller
 
             'dia'=>'required',
             'hora_inicio'=>'required|date_format:H:i', /* Valida que tenga un formato de hora de 24h */
-            'hora_fin'=>'required|date_format:H:i|after:hora_inicio' /* Valida que hora_fin sea una hora posterior a la hora_inicio */
-            
+            'hora_fin'=>'required|date_format:H:i|after:hora_inicio', /* Valida que hora_fin sea una hora posterior a la hora_inicio */
+            'consultorio_id'=>'required|exists:consultorios,id' /* Valida que el valor proporcionado para 'consultorio_id' exista en la tabla 'consultorios', especificamente en la columna 'id' */
         ]);
 
         /* Objetivo: Comprobar si ya existe un horario en la base de datos que se superpone con el nuevo horario que se está intentando registrar. */
         $horarioExistente = Horario::where("dia", $request->dia) // Filtra los registros para que coincidan con el día (dia) especificado en la solicitud.
+            ->where('consultorio_id', $request->consultorio_id) // Filtra los registros para que coincidan con el consultorio (consultorio_id) especificado en la solicitud.
             ->where(function ($query) use ($request) { // Añade una condición adicional, donde se verifica si hay un solapamiento en los horarios.
                 /* Primer 'where': Busca horarios cuya hora_inicio está dentro del rango del nuevo horario */
                 $query->where(function ($query) use ($request) {

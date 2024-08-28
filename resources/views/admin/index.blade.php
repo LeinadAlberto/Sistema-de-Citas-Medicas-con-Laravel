@@ -94,5 +94,20 @@
             <a href="{{ url('admin/doctores')}}" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
+
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-secondary">
+            <div class="inner">
+                <h3>{{ $total_horarios }}</h3>
+                <p>Registros de Horarios</p>
+            </div>
+            <a href="{{ url('admin/horarios/create')}}">
+                <div title="Registrar Horario" class="icon">
+                    <i class="fas bi bi-calendar2-week"></i>
+                </div>
+            </a>
+            <a href="{{ url('admin/horarios')}}" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
     
 @endsection
