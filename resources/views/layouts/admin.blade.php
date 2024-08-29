@@ -235,12 +235,15 @@
 
                             <!-- Cerrar Sesión -->
                             <li class="nav-item">
-                                <a href="#" class="nav-link" style="background: #751332;">
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link" style="background: #751332;">
                                     <i class="nav-icon fas bi bi-door-closed"></i>
                                     <p>
                                         Cerrar Sesión
                                     </p>
                                 </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </li>
                         </ul>
                     </nav>
