@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
     <head>
         <meta charset="utf-8">
@@ -9,7 +9,6 @@
         <!-- Favicons -->
         <link href="{{ url('dist/img/logo-sis-medical.png') }}" rel="icon">
         <link href="{{ url('dist/img/logo-sis-medical.png') }}" rel="apple-touch-icon">
-
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
@@ -82,7 +81,7 @@
                     </form>
 
                     <p class="mb-0">
-                        <a href="register.html" class="text-center text-info">¿Aún no tienes cuenta?</a>
+                        <a href="{{ url('register') }}" class="text-center text-info">¿Aún no tienes cuenta?</a>
                     </p>
                 </div><!-- /.card-body -->
 
