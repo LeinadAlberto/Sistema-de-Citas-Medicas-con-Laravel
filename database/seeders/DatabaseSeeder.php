@@ -4,8 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -47,6 +50,23 @@ class DatabaseSeeder extends Seeder
         ]);
         */
 
+        /* Seeder para los Roles y Permisos */
+
+        /* https://spatie.be/docs/laravel-permission/v6/basic-usage/basic-usage 
+
+            $role = Role::create(['name' => 'writer']);
+        */
+
+        $admin = Role::create(['name' => 'admin']);
+
+        $secretaria = Role::create(['name' => 'secretaria']);
+
+        $doctor = Role::create(['name' => 'doctor']);
+
+        $paciente = Role::create(['name' => 'paciente']);
+
+        $usuario = Role::create(['name' => 'usuario']);
+        
         $this->call([PacienteSeeder::class]);
     }
 }
