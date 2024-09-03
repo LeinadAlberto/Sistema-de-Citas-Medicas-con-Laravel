@@ -11,7 +11,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /* Rutas para el Administrador */
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index')->middleware('auth');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])
+    ->name('admin.index')->middleware('auth');
 
 /* Rutas para módulo Usuarios */
 Route::get('/admin/usuarios', [App\Http\Controllers\UsuarioController::class, 'index'])
@@ -78,7 +79,6 @@ Route::get('/admin/secretarias/{id}/confirm-delete', [App\Http\Controllers\Secre
 Route::delete('/admin/secretarias/{id}', [App\Http\Controllers\SecretariaController::class, 'destroy'])
     ->name('admin.secretarias.destroy')
     ->middleware('auth');
-
 
 /* Rutas para módulo Pacientes */
 Route::get('/admin/pacientes', [App\Http\Controllers\PacienteController::class, 'index'])
