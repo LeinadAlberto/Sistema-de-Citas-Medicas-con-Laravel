@@ -13,7 +13,7 @@ class PacienteSeeder extends Seeder
      */
     public function run(): void
     {
-        Paciente::factory()->count(100)->create()->each(function ($user) {
+        Paciente::factory()->count(25)->create()->each(function ($user) {
             $user->assignRole('paciente');
         });
     }
