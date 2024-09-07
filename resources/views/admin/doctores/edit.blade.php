@@ -112,7 +112,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Contraseña <b class="text-danger">*</b></label>
-                                <input name="password" type="password" value="{{ old('password') }}" class="form-control" required>
+                                <input name="password" type="password" value="{{ old('password') }}" class="form-control">
                                 @error('password')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -123,7 +123,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Repetir Contraseña <b class="text-danger">*</b></label>
-                                <input name="password_confirmation" type="password" value="{{ old('password_confirmation') }}" class="form-control" required>
+                                <input name="password_confirmation" type="password" value="{{ old('password_confirmation') }}" class="form-control">
                                 @error('password_confirmation')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror

@@ -2,13 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [App\Http\Controllers\WebController::class, 'index'])->name('index');;
+
+/* Rutas - AJAX */
+Route::get('/consultorios/{id}', [App\Http\Controllers\WebController::class, 'cargar_datos_consultorios'])
+    ->name('cargar_datos_consultorios');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
 
 /* Rutas para el Administrador */
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])
@@ -216,3 +221,4 @@ Route::delete('/admin/horarios/{id}', [App\Http\Controllers\HorarioController::c
 Route::get('/admin/horarios/consultorios/{id}', [App\Http\Controllers\HorarioController::class, 'cargar_datos_consultorios'])
     ->name('admin.horarios.cargar_datos_consultorios')
     ->middleware('auth','can:admin.horarios.cargar_datos_consultorios');
+
