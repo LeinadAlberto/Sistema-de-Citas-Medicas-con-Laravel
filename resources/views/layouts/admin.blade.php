@@ -70,12 +70,14 @@
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
-                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div class="image">
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex flex-column align-items-center">
+                        <div class="image pl-0">
                             <img src="{{ url('dist/img/user-default.png') }}" class="img-circle elevation-2" alt="User Image">
                         </div>
-                        <div class="info">
-                            <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                        <div class="info" style="padding-left: 5px;">
+                            <h7>
+                                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                            </h7>
                         </div>
                     </div>
 

@@ -113,47 +113,50 @@
                     </div><!-- End Welcome -->
 
                     <div class="content row gy-4">
-                    <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
-                        <h3>Reserva tu Cita Médica</h3>
-                        
-                        <div class="text-center">
-                            <a href="#about" class="more-btn"><span>Reservar ahora</span> <i class="bi bi-chevron-right"></i></a>
-                        </div>
-                        </div>
-                    </div><!-- End Why Box -->
-
-                    <div class="col-lg-8 d-flex align-items-stretch">
-                        <div class="d-flex flex-column justify-content-center">
-                        <div class="row gy-4">
-
-                            <div class="col-xl-4 d-flex align-items-stretch">
-                            <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
-                                <i class="bi bi-clipboard-data"></i>
-                                <h4>Corporis voluptates officia eiusmod</h4>
-                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                        <div class="col-lg-4 d-flex align-items-stretch">
+                            <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
+                                <h3>Reserva tu Cita Médica</h3>
+                                
+                                <div class="text-center">
+                                    <a href="{{ url('admin') }}" class="more-btn">
+                                        <span>Reservar ahora</span> 
+                                        <i class="bi bi-chevron-right"></i>
+                                    </a>
+                                </div>
                             </div>
-                            </div><!-- End Icon Box -->
+                        </div><!-- End Why Box -->
 
-                            <div class="col-xl-4 d-flex align-items-stretch">
-                            <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
-                                <i class="bi bi-gem"></i>
-                                <h4>Ullamco laboris ladore pan</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                        <div class="col-lg-8 d-flex align-items-stretch">
+                            <div class="d-flex flex-column justify-content-center">
+                            <div class="row gy-4">
+
+                                <div class="col-xl-4 d-flex align-items-stretch">
+                                <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
+                                    <i class="bi bi-clipboard-data"></i>
+                                    <h4>Corporis voluptates officia eiusmod</h4>
+                                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                                </div>
+                                </div><!-- End Icon Box -->
+
+                                <div class="col-xl-4 d-flex align-items-stretch">
+                                <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
+                                    <i class="bi bi-gem"></i>
+                                    <h4>Ullamco laboris ladore pan</h4>
+                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                                </div>
+                                </div><!-- End Icon Box -->
+
+                                <div class="col-xl-4 d-flex align-items-stretch">
+                                <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
+                                    <i class="bi bi-inboxes"></i>
+                                    <h4>Labore consequatur incidid dolore</h4>
+                                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                                </div>
+                                </div><!-- End Icon Box -->
+
                             </div>
-                            </div><!-- End Icon Box -->
-
-                            <div class="col-xl-4 d-flex align-items-stretch">
-                            <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
-                                <i class="bi bi-inboxes"></i>
-                                <h4>Labore consequatur incidid dolore</h4>
-                                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
                             </div>
-                            </div><!-- End Icon Box -->
-
                         </div>
-                        </div>
-                    </div>
                     </div><!-- End  Content-->
 
                 </div>
@@ -194,16 +197,16 @@
                     
                             var consultorio_id = $('#consultorio_select').val();
                     
-                            var url = "{{ route('cargar_datos_consultorios', ':id') }}";
+                            /* var url = "{{ route('cargar_datos_consultorios', ':id') }}"; */
                             
-                            url = url.replace(':id', consultorio_id); 
+                            /* url = url.replace(':id', consultorio_id);  */
                     
                             /* alert(url); */
                     
                             if (consultorio_id) {
                     
                                 $.ajax({
-                                    url: url,
+                                    url: "{{ url('/consultorios') }}" + "/" + consultorio_id,
                                     type: 'GET',
                                     success: function(data) {
                                         $('#consultorio_info').html(data);
