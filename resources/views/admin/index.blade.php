@@ -122,4 +122,118 @@
         </div>
     @endcan
     
+    <div class="col-md-12">
+        <div class="card card-outline card-info">
+            <div class="row card-header" style="border-bottom: none;">
+                <div class="col-md-6 d-flex align-items-center">
+                        <h3 class="card-title">Calendario de atención de doctores</h3>
+                </div>    
+                
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <label class="mr-4">Consultorios</label>
+                    <div class="form-group" width="100px">
+                        <select id="consultorio_select" name="consultorio_id" class="form-control">
+                            <option>Seleccionar Consultorio</option>
+                            @foreach($consultorios as $consultorio)
+                                <option value="{{ $consultorio->id }}">{{ $consultorio->nombre . " | " . $consultorio->ubicacion }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $('#consultorio_select').on('change', function() {
+    
+            var consultorio_id = $('#consultorio_select').val();
+    
+            /* var url = "{{ route('admin.horarios.cargar_datos_consultorios', ':id') }}"; */
+    
+            /* url = url.replace(':id', consultorio_id);  */
+    
+            /* alert(consultorio_id); */
+    
+            if (consultorio_id) {
+    
+                $.ajax({
+                    url: "{{ url('/consultorios') }}" + "/" + consultorio_id,
+                    type: 'GET',
+                    success: function(data) {
+                        $('#consultorio_info').html(data);
+                    },
+                    error: function() {
+                        alert('Error al obtener los datos del consultorio');
+                    }
+                });
+    
+            } else {
+                $('#consultorio_info').html(data);
+            }
+    
+        });
+    </script>
+    
+    <div class="col-md-12">
+        <div id="consultorio_info" style="background: #83bbb0;">
+                
+        </div>
+    </div>
+
+    <div class="col-md-12">
+
+        <div class="card card-outline card-warning">
+
+            <div class="row card-header" style="border-bottom: none;">
+
+                <div class="col-md-6 d-flex align-items-center">
+                        <h3 class="card-title">Calendario de reserva de citas medicas</h3>
+                </div>    
+                
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <label class="mr-4">Consultorios</label>
+                    <div class="form-group" width="100px">
+                        <select id="consultorio_select" name="consultorio_id" class="form-control">
+                            <option>Seleccionar Consultorio</option>
+                            @foreach($consultorios as $consultorio)
+                                <option value="{{ $consultorio->id }}">{{ $consultorio->nombre . " | " . $consultorio->ubicacion }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+            </div><!-- /.row -->
+
+            <div class="card-body">
+
+                <div id='calendar'></div>
+
+            </div><!-- /.card-body -->
+
+        </div><!-- /.card -->
+
+    </div><!-- /.col-md-12 -->
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+
+                initialView: 'dayGridMonth',
+                locale: 'es'
+
+            });
+
+            calendar.render();
+
+        });
+
+    </script>
+        
 @endsection
+
