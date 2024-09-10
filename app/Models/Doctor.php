@@ -38,4 +38,11 @@ class Doctor extends Model
         return $this->hasMany(Horario::class);
 
     }
+
+    /* Define una relación que indica que un Doctor puede tener muchos Eventos */
+    public function events() {
+
+        return $this->hasMany(Event::class);/* Relación uno a muchos, significa que un Doctor puede estar relacionado con múltiples Eventos. */
+
+    }
 }

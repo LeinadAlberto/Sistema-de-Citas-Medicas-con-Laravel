@@ -56,4 +56,11 @@ class User extends Authenticatable
 
     }
 
+    /* Define una relación que indica que un Usuario puede tener muchos Eventos */
+    public function events() {
+
+        return $this->hasMany(Event::class);/* Relación uno a muchos, significa que un Usuario puede estar relacionado con múltiples Eventos. */
+
+    }
+
 }

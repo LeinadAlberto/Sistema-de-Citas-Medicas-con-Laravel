@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Secretaria;
-use App\Models\Paciente;
-use App\Models\Consultorio;
 use App\Models\Doctor;
 use App\Models\Horario;
+use App\Models\Paciente;
+use App\Models\Secretaria;
+use App\Models\Consultorio;
+
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -16,17 +17,13 @@ class AdminController extends Controller
     {
 
         $total_usuarios = User::count();
-
-        $total_secretarias = Secretaria::count();
-
+        $total_doctores = Doctor::count();
+        $total_horarios = Horario::count();
         $total_pacientes = Paciente::count();
-
+        $total_secretarias = Secretaria::count();
         $total_consultorios = Consultorio::count();
 
-        $total_doctores = Doctor::count();
-
-        $total_horarios = Horario::count();
-
+        $doctores = Doctor::all();
         $consultorios = Consultorio::all();
 
         return view('admin.index', 
@@ -36,7 +33,8 @@ class AdminController extends Controller
                             'total_consultorios', 
                             'total_doctores',
                             'total_horarios',
-                            'consultorios')
+                            'consultorios',
+                            'doctores')
                     );
 
     }

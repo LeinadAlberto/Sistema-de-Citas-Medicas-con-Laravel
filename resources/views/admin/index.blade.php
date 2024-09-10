@@ -208,6 +208,70 @@
 
             <div class="card-body">
 
+                <div class="row">
+
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                        Registrar cita médica
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Reserva de cita médica</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <div class="row">
+                                        <!-- Doctor -->
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="">Doctor</label>
+                                                <select name="" id="" class="form-control">
+                                                    <option value="">Seleccione una opción...</option>
+                                                    @foreach ($doctores as $doctore)
+                                                        <option value="{{ $doctore->id }}">
+                                                            {{ $doctore->nombres . " " . $doctore->apellidos . " - " . $doctore->especialidad }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div><!-- /.col-md-12 -->
+                                        
+                                        <!-- Fecha de reserva-->
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="">Fecha de reserva</label>
+                                                <input type="date" class="form-control">
+                                            </div>
+                                        </div><!-- /.col-md-12 -->
+
+                                        <!-- Fecha de reserva-->
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="">Hora de reserva</label>
+                                                <input type="time" class="form-control">
+                                            </div>
+                                        </div><!-- /.col-md-12 -->
+                                    </div><!-- /.row -->
+
+                                </div><!-- /.modal-body -->
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-info">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal -->
+                    
+                </div>
+
                 <div id='calendar'></div>
 
             </div><!-- /.card-body -->
@@ -225,7 +289,21 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
 
                 initialView: 'dayGridMonth',
-                locale: 'es'
+                locale: 'es',
+                events: [
+                    {
+                        title: 'Cons. Odontología',
+                        start: '2024-09-09',
+                        end: '2024-09-09',
+                        color: '#FF4848'
+                    }
+                ],
+                /* Permite agregar un salto de linea entre dos cadenas de texto. */
+                /* eventContent: function(arg) {
+                    if (arg.event.title === 'Consultorio Odontología') {
+                        return { html: '<center><b>Consultorio</b><br><b>Odontología</b><center>' };
+                    }
+                } */
 
             });
 
