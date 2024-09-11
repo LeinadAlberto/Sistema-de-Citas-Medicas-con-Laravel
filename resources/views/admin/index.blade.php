@@ -224,48 +224,53 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                
+                                <form action="{{ url('/admin/eventos/create') }}" method="post">
 
-                                <div class="modal-body">
+                                    @csrf
 
-                                    <div class="row">
-                                        <!-- Doctor -->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Doctor</label>
-                                                <select name="" id="" class="form-control">
-                                                    <option value="">Seleccione una opción...</option>
-                                                    @foreach ($doctores as $doctore)
-                                                        <option value="{{ $doctore->id }}">
-                                                            {{ $doctore->nombres . " " . $doctore->apellidos . " - " . $doctore->especialidad }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div><!-- /.col-md-12 -->
-                                        
-                                        <!-- Fecha de reserva-->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Fecha de reserva</label>
-                                                <input type="date" class="form-control">
-                                            </div>
-                                        </div><!-- /.col-md-12 -->
-
-                                        <!-- Fecha de reserva-->
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Hora de reserva</label>
-                                                <input type="time" class="form-control">
-                                            </div>
-                                        </div><!-- /.col-md-12 -->
-                                    </div><!-- /.row -->
-
-                                </div><!-- /.modal-body -->
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-info">Registrar</button>
-                                </div>
+                                    <div class="modal-body">
+    
+                                        <div class="row">
+                                            <!-- Doctor -->
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="">Doctor</label>
+                                                    <select name="doctor_id" id="" class="form-control">
+                                                        <option value="">Seleccione una opción...</option>
+                                                        @foreach ($doctores as $doctore)
+                                                            <option value="{{ $doctore->id }}">
+                                                                {{ $doctore->nombres . " " . $doctore->apellidos . " - " . $doctore->especialidad }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div><!-- /.col-md-12 -->
+                                            
+                                            <!-- Fecha de reserva-->
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="">Fecha de reserva</label>
+                                                    <input name="fecha_reserva" type="date" class="form-control">
+                                                </div>
+                                            </div><!-- /.col-md-12 -->
+    
+                                            <!-- Hora de reserva-->
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="">Hora de reserva</label>
+                                                    <input name="hora_reserva" type="time" class="form-control">
+                                                </div>
+                                            </div><!-- /.col-md-12 -->
+                                        </div><!-- /.row -->
+    
+                                    </div><!-- /.modal-body -->
+    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        <button type="submit" class="btn btn-info">Registrar</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div><!-- /.modal -->
