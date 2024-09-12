@@ -29,7 +29,7 @@
         <!-- FullCalendar 6.1.15 -->
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
         <script src="{{ url('fullcalendar/es.global.js') }}"></script>
-
+        
     </head>
     
     <body class="hold-transition sidebar-mini">

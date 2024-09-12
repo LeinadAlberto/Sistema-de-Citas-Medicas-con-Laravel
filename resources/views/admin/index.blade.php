@@ -237,7 +237,7 @@
                                                 <div class="form-group">
                                                     <label for="">Doctor</label>
                                                     <select name="doctor_id" id="" class="form-control">
-                                                        <option value="">Seleccione una opción...</option>
+                                                        <option value="select" selected disabled>Seleccione una doctor...</option>
                                                         @foreach ($doctores as $doctore)
                                                             <option value="{{ $doctore->id }}">
                                                                 {{ $doctore->nombres . " " . $doctore->apellidos . " - " . $doctore->especialidad }}
@@ -248,18 +248,65 @@
                                             </div><!-- /.col-md-12 -->
                                             
                                             <!-- Fecha de reserva-->
-                                            <div class="col-md-12">
+                                            <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label for="">Fecha de reserva</label>
-                                                    <input name="fecha_reserva" type="date" class="form-control">
+                                                    <input name="fecha_reserva" id="fecha_reserva" value="<?php echo date('Y-m-d'); ?>" type="date" class="form-control">
+                                                    <!-- Script que valida que no se pueda seleccionar una fecha pasada -->
+                                                    <script>
+                                                        document.addEventListener('DOMContentLoaded', function() {
+
+                                                            const fechaReservaInput = document.getElementById('fecha_reserva');
+
+                                                            // Escuchar el evento de cambio en el campo de fecha de reserva
+                                                            fechaReservaInput.addEventListener('change', function() {
+
+                                                                let selectedDate = this.value; // Obtener la fecha seleccionada
+
+                                                                // Obtener la fecha actual en formato ISO (yy-mm-dd)
+                                                                let today = new Date().toISOString().slice(0, 10);
+
+                                                                // Verificar si la fecha seleccionada es anterior a la fecha actual
+                                                                if (selectedDate < today) {
+                                                                    // Si es asi, establecer la fecha seleccionada en null
+                                                                    this.value = null;
+                                                                    alert('No se puede reservar una cita en una fecha pasada.');
+                                                                }
+                                                            });
+
+                                                        });
+                                                    </script>
+                                                    
                                                 </div>
                                             </div><!-- /.col-md-12 -->
     
                                             <!-- Hora de reserva-->
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="">Hora de reserva</label>
-                                                    <input name="hora_reserva" type="time" class="form-control">
+                                            <div class="col-md-7">
+                                                <label for="">Hora de reserva</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">
+                                                            <i class="fas fa-clock"></i> <!-- Ícono de reloj -->
+                                                        </span>
+                                                    </div>
+
+                                                    {{-- <input name="hora_reserva" id="hora_reserva" type="time" class="form-control"> --}}
+                                                    <select name="hora_reserva" id="" type="time" class="form-control">
+                                                        <option value="select" selected disabled>Seleccione una hora...</option>
+                                                        <option value="08:00">08:00</option>
+                                                        <option value="09:00">09:00</option>
+                                                        <option value="10:00">10:00</option>
+                                                        <option value="11:00">11:00</option>
+                                                        <option value="12:00">12:00</option>
+                                                        <option value="13:00">13:00</option>
+                                                        <option value="14:00">14:00</option>
+                                                        <option value="15:00">15:00</option>
+                                                        <option value="16:00">16:00</option>
+                                                        <option value="17:00">17:00</option>
+                                                        <option value="18:00">18:00</option>
+                                                        <option value="19:00">19:00</option>
+                                                        <option value="20:00">20:00</option>
+                                                    </select>
                                                 </div>
                                             </div><!-- /.col-md-12 -->
                                         </div><!-- /.row -->
