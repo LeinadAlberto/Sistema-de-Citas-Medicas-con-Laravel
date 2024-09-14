@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+/* use Illuminate\Validation\ValidationException; */
 
 class EventController extends Controller
 {
@@ -23,9 +24,21 @@ class EventController extends Controller
     {
         /* $datos = request()->all();
 
-        return response()->json($datos); */  
+        return response()->json($datos); */ 
+        
+        $request->validate([
+            'fecha_reserva'=>'required',
+            'hora_reserva'=>'required'
+        ]);
 
         $doctor = Doctor::find($request->doctor_id);
+
+        $fecha_reserva = $request->fecha_reserva;
+
+        $hora_reserva = $request->hora_reserva;
+
+        $horarios = Horario::where("doctor_id", $doctor->id)
+                    ->where("dia", date("1", strtotime($fecha_reserva)));
 
         $evento = new Event();
 
